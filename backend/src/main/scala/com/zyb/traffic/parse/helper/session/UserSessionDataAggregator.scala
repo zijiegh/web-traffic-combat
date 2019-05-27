@@ -1,9 +1,9 @@
 package com.zyb.traffic.parse.helper.session
 
-import com.twq.spark.web.{AvroRecordBuilder, ConversionBuilder}
-import com.zyb.traffic.avros.{Conversion, Session}
-import com.zyb.traffic.parse.helper.CombinedId
-import com.zyb.traffic.parser.data.`object`.{EventDataObject, TargetPageDataObject}
+import com.zyb.traffic.avros._
+import com.zyb.traffic.parse.external.UserVisitInfo
+import com.zyb.traffic.parse.helper.{AvroRecordBuilder, CombinedId, ConversionBuilder}
+import com.zyb.traffic.parser.data.`object`._
 import com.zyb.traffic.parser.data.`object`.dim.TargetPageInfo
 
 import scala.collection.immutable.VectorBuilder
@@ -99,6 +99,7 @@ class UserSessionDataAggregator(
     val daysSinceLastVisit =
       if (isNewVisitor) -1
       else {
+        import com.github.nscala_time.time.Imports._
         val lastDateMidNight = new DateTime(userVisitInfo.lastVisitTime).toDateMidnight
         val currentDateMidNight = new DateTime(data.sessionStartTime).toDateMidnight
         (lastDateMidNight to currentDateMidNight).toDuration.days.toInt
