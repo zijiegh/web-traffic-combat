@@ -1,7 +1,10 @@
 package com.zyb.traffic.parse.helper.session
 
+import com.zyb.traffic.avros._
+
 /**
   *  一个会话中的所有的最终实体，和我们的表结构一一对应
+ *
   * @param sessionRecord  会话实体
   * @param pageViewRecords  会话中所有的PageView实体
   * @param mouseClickRecords 会话中所有的MouseClick实体
