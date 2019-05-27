@@ -1,8 +1,7 @@
 package com.zyb.traffic
 
 import com.zyb.traffic.parse.handler.LogParse
-import com.zyb.traffic.parse.helper.CombinedId
-import com.zyb.traffic.parse.{CombinedId, KryoRegister}
+import com.zyb.traffic.parse.helper.{CombinedId, KryoRegister}
 import com.zyb.traffic.parser.data.`object`.BaseDataObject
 import org.apache.spark.{HashPartitioner, SparkConf}
 import org.apache.spark.rdd.RDD
